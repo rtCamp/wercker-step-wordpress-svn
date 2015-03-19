@@ -1,0 +1,3 @@
+name: wordpress-svn
+version: 0.1
+description: Deploy a git repo to wordpress.org plugin svn repo
