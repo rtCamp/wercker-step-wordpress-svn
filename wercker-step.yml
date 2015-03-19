@@ -27,3 +27,6 @@ properties:
   gitpass:
     type: string
     required: true
+  gitemail:
+    type: string
+    required: true

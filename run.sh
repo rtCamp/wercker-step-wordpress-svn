@@ -36,10 +36,14 @@ echo "Versions match in readme.txt and PHP file ($WERCKER_WORDPRESS_SVN_MAINFILE
 
 cd $GITPATH
 
+## git config
+git config  user.email "$WERCKER_WORDPRESS_SVN_GITEMAIL"
+git config  user.name "$WERCKER_WORDPRESS_SVN_GITUSER"
+
 ## Github ReadMe
-wget https://raw.github.com/rtCamp/wp-plugin-bootstrap/master/readme.sh
+wget -q https://raw.github.com/rtCamp/wp-plugin-bootstrap/master/readme.sh
 bash readme.sh $SVNURL
-rm readme.sh
+# rm readme.sh
 # echo -e "Enter a commit message for this new version: \c"
 # read COMMITMSG
 git commit -am "Updated readme.md"
