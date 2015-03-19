@@ -7,14 +7,13 @@ Wercker deploy step for wordpress.org plugin svn repo
 ```yml
 deploy:
   steps:
-    - rtcamp/wordpress-svn:
-        pluginslug: wordpress.orh plugin plug
-        mainfile: main plugin filename for your plugin
-        svnuser: wordpress.org username
-        svnpass: $WPPASS                     #wordpress.org password
-        gituser: github username
-        gitpass: $GITHUBPASS                  #github.com password
-
+    - rahul286/wordpress-svn:
+        pluginslug:   wordpress.org plugin plug
+        mainfile:     main plugin filename for your plugin
+        svnuser:      wordpress.org username
+        svnpass:      $SVNPASS                     #wordpress.org password
+        gituser:      github username
+        gitpass:      $GITPASS                  #github.com password
 ```
 
-For safety, do not write `` or `$SVNPASS` inside `wercker.yml` file.
+For safety, do not write `GITPASS` or `SVNPASS` inside `wercker.yml` file. Instead use [pipeline or deploy variables](http://old-devcenter.wercker.com/articles/steps/variables.html)
