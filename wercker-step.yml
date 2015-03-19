@@ -1,3 +1,29 @@
 name: wordpress-svn
-version: 0.1
-description: Deploy a git repo to wordpress.org plugin svn repo
+version: 0.0.2
+description: Deploy a git (github) repo to wordpress.org plugin svn repo
+keywords:
+  - wordpress
+  - svn
+  - git
+  - readme
+  - release
+  - deploy
+properties:
+  pluginslug:
+    type: string
+    required: true
+  mainfile:
+    type: string
+    required: true
+  svnuser:
+    type: string
+    required: true
+  svnpass:
+    type: string
+    required: true
+  gituser:
+    type: string
+    required: true
+  gitpass:
+    type: string
+    required: true
