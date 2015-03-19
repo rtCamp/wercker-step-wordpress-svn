@@ -8,8 +8,8 @@ Wercker deploy step for wordpress.org plugin svn repo
 deploy:
   steps:
     - rahul286/wordpress-svn:
-        pluginslug:   wordpress.org plugin plug
-        mainfile:     main plugin filename for your plugin
+        pluginslug:   wordpress.org plugin slug
+        mainfile:     main plugin filename 
         svnuser:      wordpress.org username
         svnpass:      $SVNPASS                     #wordpress.org password
         gituser:      github username
