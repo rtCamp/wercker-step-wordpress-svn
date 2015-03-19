@@ -1,7 +1,7 @@
 # Based on Dean Clatworthy's deploy script - https://github.com/deanc/wordpress-plugin-git-svn
 
 # Preparing
-apt-get install -y subversion
+sudo apt-get install -y subversion
 
 # git source code
 # this file should be in the base of your git repository
