@@ -1,5 +1,5 @@
 name: wordpress-svn
-version: 0.0.12
+version: 0.0.13
 description: Deploy a git (github) repo to wordpress.org plugin svn repo
 keywords:
   - wordpress

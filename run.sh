@@ -38,6 +38,9 @@ if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Versions don't match. Exitin
 
 echo "Versions match in readme.txt and PHP file ($WERCKER_WORDPRESS_SVN_MAINFILE). Let's proceed..."
 
+# set commit msg
+$COMMITMSG = "Publishing version $NEWVERSION1"
+
 cd $GITPATH
 
 ## git config
@@ -86,7 +89,7 @@ echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
 # Add all new files that are not set to be ignored
 svn status | grep -v "^.[ \t]*\..*" | grep "^?" | awk '{print $2}' | xargs svn add
-svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER -m "$COMMITMSG"
+svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRESS_SVN_SVNPASS -m "$COMMITMSG"
 
 echo "Creating new SVN tag & committing it"
 cd $SVNPATH
