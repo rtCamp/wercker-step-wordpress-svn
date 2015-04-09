@@ -39,7 +39,7 @@ if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Versions don't match. Exitin
 echo "Versions match in readme.txt and PHP file ($WERCKER_WORDPRESS_SVN_MAINFILE). Let's proceed..."
 
 # set commit msg
-$COMMITMSG = "Publishing version $NEWVERSION1"
+COMMITMSG = "Publishing version $NEWVERSION1"
 
 cd $GITPATH
 
