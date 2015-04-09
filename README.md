@@ -9,7 +9,7 @@ deploy:
   steps:
     - rahul286/wordpress-svn:
         pluginslug:   wordpress.org plugin slug
-        mainfile:     main plugin filename 
+        mainfile:     main plugin filename
         svnuser:      wordpress.org username
         svnpass:      $SVNPASS                     #wordpress.org password
         gituser:      github username
