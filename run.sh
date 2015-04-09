@@ -38,9 +38,6 @@ if [ "$NEWVERSION1" != "$NEWVERSION2" ]; then echo "Versions don't match. Exitin
 
 echo "Versions match in readme.txt and PHP file ($WERCKER_WORDPRESS_SVN_MAINFILE). Let's proceed..."
 
-# set commit msg
-COMMITMSG = "Publishing version $NEWVERSION1"
-
 cd $GITPATH
 
 ## git config
@@ -89,15 +86,22 @@ echo "Changing directory to SVN and committing to trunk"
 cd $SVNPATH/trunk/
 # Add all new files that are not set to be ignored
 svn status | grep -v "^.[ \t]*\..*" | grep "^?" | awk '{print $2}' | xargs svn add
-svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRESS_SVN_SVNPASS -m "$COMMITMSG"
+svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRESS_SVN_SVNPASS --no-auth-cache -m "Updating trunk with version $NEWVERSION1"
 
 echo "Creating new SVN tag & committing it"
 cd $SVNPATH
 svn copy trunk/ tags/$NEWVERSION1/
 cd $SVNPATH/tags/$NEWVERSION1
-svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRESS_SVN_SVNPASS -m "Tagging version $NEWVERSION1"
+svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRESS_SVN_SVNPASS --no-auth-cache -m "Tagging version $NEWVERSION1"
 
 # echo "Removing temporary directory $SVNPATH"
 # rm -fr $SVNPATH/
 
-echo "*** FIN ***"
+if [ $? -eq 0 ]
+then
+  echo "*** FIN ***"
+  exit 0
+else
+  echo "*** FAILED ***"
+  exit 1
+fi
