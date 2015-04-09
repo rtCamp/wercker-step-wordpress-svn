@@ -2,7 +2,7 @@
 
 # Preparing
 # sudo apt-get update
-sudo apt-get install subversion -y
+sudo apt-get install subversion git wget -y
 
 # git source code
 # this file should be in the base of your git repository
