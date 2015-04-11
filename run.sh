@@ -81,10 +81,12 @@ bin
 assets
 phpunit.xml" "$SVNPATH/trunk/"
 
-echo "Changing directory to SVN and committing to trunk"
+echo "Changing directory to SVN"
 cd $SVNPATH/trunk/
+echo "Checking SVN Status"
 # Add all new files that are not set to be ignored
 svn status | grep -v "^.[ \t]*\..*" | grep "^?" | awk '{print $2}' | xargs svn add
+echo "Updating SVN trunk"
 svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRESS_SVN_SVNPASS --no-auth-cache -m "Updating trunk with version $NEWVERSION1"
 
 echo "Creating new SVN tag & committing it"
