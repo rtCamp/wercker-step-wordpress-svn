@@ -117,7 +117,7 @@ svn commit --username=$WERCKER_WORDPRESS_SVN_SVNUSER --password=$WERCKER_WORDPRE
 if [ $? -eq 0 ]
 then
   echo "*** FIN ***"
-  exit 0
+  # exit 0
 else
   echo "*** FAILED ***"
   exit 1
