@@ -40,6 +40,20 @@ echo "Versions match in readme.txt and PHP file ($WERCKER_WORDPRESS_SVN_MAINFILE
 
 cd $GITPATH
 
+## Check if most recent version is already deployed
+
+#get most recent version from git. There is `git describe --tags  --abbrev=0` command as well
+#but it dit not work well
+
+LATESTVERSION=(`git tag --sort=v:refname | tail -n 1`)
+
+echo "Latest version is $LATESTVERSION"
+echo "New version is $NEWVERSION1"
+
+if [ "$NEWVERSION1" == "$LATESTVERSION" ]; then echo "Latest version is already deployed. Exiting...."; exit 0; fi
+
+echo "Versions match in readme.txt and PHP file ($WERCKER_WORDPRESS_SVN_MAINFILE). Also latest version is not yet deployed. Let's proceed..."
+
 ## git config
 git config  user.email "$WERCKER_WORDPRESS_SVN_GITEMAIL"
 git config  user.name "$WERCKER_WORDPRESS_SVN_GITUSER"
