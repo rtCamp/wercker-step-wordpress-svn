@@ -47,7 +47,7 @@ cd $GITPATH
 
 #did not work on wercker `git tag --sort=v:refname | tail -n 1`
 
-LATESTVERSION=(`git describe --tags $(git rev-list --tags --max-count=1`)
+LATESTVERSION=$(git describe --tags `git rev-list --tags --max-count=1`)
 
 echo "Latest version is $LATESTVERSION"
 echo "New version is $NEWVERSION1"
