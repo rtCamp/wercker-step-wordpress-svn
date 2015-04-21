@@ -43,7 +43,8 @@ cd $GITPATH
 ## Check if most recent version is already deployed
 
 #get most recent version from git. There is `git describe --tags  --abbrev=0` command as well
-#but it dit not work well
+#but it dit not work well.
+#did not try `git describe --tags $(git rev-list --tags --max-count=1)`
 
 LATESTVERSION=(`git tag --sort=v:refname | tail -n 1`)
 
